@@ -54,7 +54,6 @@ client.on("message", async (msg) => {
     msg.reply("Something went wrong. Please try again later.")
     return;
   }
-
   // SEND MESSAGE AND PHONE NUMBER TO BACKEND AND GET RESPONSE AND REPLY
 });
 
