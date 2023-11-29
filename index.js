@@ -19,6 +19,16 @@ client.on("message", async (msg) => {
     msg.reply("pong");
     return;
   }
+  if (msg.hasMedia){
+    console.log("Media is not supported");
+    // msg.reply("Media is not supported");
+    return;
+  }
+  if (msg.from.includes("@g")){
+    console.log("Group Conversations are not supported");
+    // msg.reply("Group Conversations are not supported");
+    return;
+  }
 
   const mobile = "+" + msg.from.split('@')[0];
   const message = msg.body;
@@ -33,21 +43,10 @@ client.on("message", async (msg) => {
   }
 
 
-  try{
   const response = await fetch("http://localhost:3000/api/response", {
     method: "POST",
     body: JSON.stringify({ mobile, message }),
   });
-  } catch (e){
-    if (msg.hasMedia) {
-      console.log("Media is not supported")
-      // msg.reply("Media is not supported");
-      return;
-    }
-    console.log("Group Conversations are not supported");
-    // msg.reply("Group Conversations are not supported")
-    return;
-  }
 
   const status = response.status;
   const data = await response.json();
