@@ -30,6 +30,11 @@ client.on("message", async (msg) => {
     msg.reply("pong");
     return;
   }
+  
+  const mobile = "+" + msg.from.split("@")[0];
+  const message = msg.body;
+
+  console.log("MOBILE: ", mobile, "MESSAGE :", message)
   if (msg.hasMedia) {
     console.log("Media is not supported");
     // msg.reply("Media is not supported");
@@ -40,9 +45,6 @@ client.on("message", async (msg) => {
     // msg.reply("Group Conversations are not supported");
     return;
   }
-
-  const mobile = "+" + msg.from.split("@")[0];
-  const message = msg.body;
 
   if (msg.body == "!new") {
     await fetch("http://localhost:3000/api/new", {
@@ -61,8 +63,7 @@ client.on("message", async (msg) => {
   const status = response.status;
   const data = await response.json();
   const reply = data?.message;
-  console.log("MOBILE: ", mobile, "STATUS: ", status);
-  console.log("REPLY: ", reply);
+  console.log("MOBILE: ", mobile, "STATUS: ", status, "REPLY: ", reply);
 
   switch (status) {
     case 200:
