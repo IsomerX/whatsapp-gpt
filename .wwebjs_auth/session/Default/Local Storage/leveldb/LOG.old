@@ -1,6 +1,2 @@
-2023/11/30-01:44:30.120 9d03 Reusing MANIFEST /Users/shivammittal/Desktop/personal/whatsapp-gpt/.wwebjs_auth/session/Default/Local Storage/leveldb/MANIFEST-000001
-2023/11/30-01:44:30.120 9d03 Recovering log #3
-2023/11/30-01:44:30.120 9d03 Reusing old log /Users/shivammittal/Desktop/personal/whatsapp-gpt/.wwebjs_auth/session/Default/Local Storage/leveldb/000003.log 
-2023/11/30-01:46:30.652 11803 Level-0 table #5: started
-2023/11/30-01:46:30.658 11803 Level-0 table #5: 29391 bytes OK
-2023/11/30-01:46:30.670 11803 Delete type=0 #3
+2023/12/27-21:45:54.355 8903 Creating DB /Users/shivammittal/Desktop/personal/whatsapp-gpt/.wwebjs_auth/session/Default/Local Storage/leveldb since it was missing.
+2023/12/27-21:45:54.369 8903 Reusing MANIFEST /Users/shivammittal/Desktop/personal/whatsapp-gpt/.wwebjs_auth/session/Default/Local Storage/leveldb/MANIFEST-000001

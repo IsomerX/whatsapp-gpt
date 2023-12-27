@@ -30,11 +30,11 @@ client.on("message", async (msg) => {
     msg.reply("pong");
     return;
   }
-  
+
   const mobile = "+" + msg.from.split("@")[0];
   const message = msg.body;
 
-  console.log("MOBILE: ", mobile, "MESSAGE :", message)
+  console.log("MOBILE: ", mobile, "MESSAGE :", message);
   if (msg.hasMedia) {
     console.log("Media is not supported");
     // msg.reply("Media is not supported");
@@ -47,7 +47,7 @@ client.on("message", async (msg) => {
   }
 
   if (msg.body == "!new") {
-    await fetch("http://localhost:3000/api/new", {
+    await fetch("https://chatwiz.onrender.com/api/new", {
       method: "POST",
       body: JSON.stringify({ mobile }),
     });
@@ -55,7 +55,7 @@ client.on("message", async (msg) => {
     return;
   }
 
-  const response = await fetch("http://localhost:3000/api/response", {
+  const response = await fetch("https://chatwiz.onrender.com/api/response", {
     method: "POST",
     body: JSON.stringify({ mobile, message }),
   });
