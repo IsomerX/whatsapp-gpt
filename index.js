@@ -55,32 +55,39 @@ client.on("message", async (msg) => {
     return;
   }
 
-  const response = await fetch("https://chatwiz.onrender.com/api/response", {
-    method: "POST",
-    body: JSON.stringify({ mobile, message }),
-  });
+  try {
+    const response = await fetch("https://chatwiz.onrender.com/api/response", {
+      method: "POST",
+      body: JSON.stringify({ mobile, message }),
+    });
 
-  const status = response.status;
-  const data = await response.json();
-  const reply = data?.message;
-  console.log("MOBILE: ", mobile, "STATUS: ", status, "REPLY: ", reply);
+    const status = response.status;
+    const data = await response.json();
+    const reply = data?.message;
+    console.log("MOBILE: ", mobile, "STATUS: ", status, "REPLY: ", reply);
 
-  switch (status) {
-    case 200:
-      msg.reply(reply);
-      return;
+    switch (status) {
+      case 200:
+        msg.reply(reply);
+        return;
 
-    case 404:
-      return;
+      // case 404:
+      //   return;
 
-    case 400:
-      return;
+      // case 400:
+      //   return;
 
-    case 500:
-      return;
+      // case 500:
+      //   return;
 
-    default:
-      return;
+      default:
+        return;
+    }
+  } catch (err) {
+    console.log(err);
+    const reply = "Something went wrong. Please try again later.";
+    msg.reply(reply);
+    return;
   }
 });
 
